@@ -37,11 +37,15 @@ public class FileManager {
         ArrayList<Player> players = new ArrayList<Player>();
         Player a = new Player("Lol", "Perez", 19, "zsr13212", true);
 
+        String [] insertText = {a.getName(),a.getLastName(),String.valueOf(a.getAge()),a.getdNI(), String.valueOf(Boolean.valueOf(a.getActive()))};
+
         try {
             FileWriter fW = new FileWriter(file, true);
-            fW.append(a.getName());
-            fW.append(a.getLastName());
 
+          for(String ayuda : insertText){
+              fW.append(ayuda);
+
+          }
             fW.close();
             // falta terminar
         } catch (IOException e) {
@@ -52,7 +56,7 @@ public class FileManager {
 
     public static void main(String[] args) {
         writePLayers();
-        readPlayers();
+        //readPlayers();
 
         //System.out.printf("%d ==> %c >> %c\n",65,65,65+32);
     }
