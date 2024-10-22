@@ -3,61 +3,74 @@ package gestionDeJugadores.FileManagment;
 import gestionDeJugadores.DTO.Player;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class FileManager {
-    final static File file = new File("C:/Users/ALUMNO CCC - TARDE/Desktop/AD/csvPlayers.csv");
+    final File file = new File("C:/Users/ALUMNO CCC - TARDE/Desktop/AD/csvPlayers.csv");
+    static String[] insertText = new String[6];
 
+    public void readPlayers() {
 
-    public static void readPlayers() {
         String lineRead;
         BufferedReader bufferedReader = null;
+
         try {
+
             bufferedReader = new BufferedReader(new FileReader(file));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         try {
+
             lineRead = bufferedReader.readLine();
             while (lineRead != null) {
-                String[] campos = lineRead.split(String.valueOf(";"));
+                String[] campos = new String[]{lineRead};
                 System.out.println(Arrays.toString(campos));
                 lineRead = bufferedReader.readLine();
 
             }
+
             bufferedReader.close();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+
     }
 
-    public static void writePLayers() {
-        ArrayList<Player> players = new ArrayList<Player>();
-        Player a = new Player("Lol", "Perez", 19, "zsr13212", true);
+    public void writePLayers(Player player) {
 
-        String [] insertText = {a.getName(),a.getLastName(),String.valueOf(a.getAge()),a.getdNI(), String.valueOf(Boolean.valueOf(a.getActive()))};
+        insertText[0] = String.valueOf(player.getId());
+        insertText[1] = player.getName();
+        insertText[2] = player.getLastName();
+        insertText[3] = String.valueOf(player.getAge());
+        insertText[4] = player.getdNI();
+        insertText[5] = String.valueOf(player.getActive());
+
 
         try {
             FileWriter fW = new FileWriter(file, true);
 
-          for(String ayuda : insertText){
-              fW.append(ayuda);
+            for (String lineString : insertText) {
+                fW.append(lineString);
+                fW.append(";");
 
-          }
+            }
+            fW.append("\n");
             fW.close();
-            // falta terminar
+            System.out.println("El jugador se agregó correctamente!!");
         } catch (IOException e) {
+            System.out.println("EL jugador no se agregó correctamente!!");
             throw new RuntimeException(e);
         }
 
     }
 
-    public static void main(String[] args) {
-        writePLayers();
-        //readPlayers();
+    public void readOnlyIndex(int index) {
 
-        //System.out.printf("%d ==> %c >> %c\n",65,65,65+32);
     }
+
+
 }

@@ -1,41 +1,54 @@
 package gestionDeJugadores.Presentation;
 
-import gestionDeJugadores.DTO.Player;
-
-import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import static gestionDeJugadores.Control.PrincipalClass.sc;
 import static gestionDeJugadores.DAO.PlayersDAO.*;
 
 public class Interfaz {
-    // menu
 
 
-    public static void menu(ArrayList<Player> players) {
+
+    public static void menu() {
 
         int option;
+        boolean exceptionControl = false;
+        boolean exitProgram = false;
         do {
-            System.out.println("1. Dar de alta un jugador.\n2.Mostrar un jugador.\n3.Mostrar todos los jugadores.\n4.Dar de baja un juagador\n5.Ver jugadores en baja");
-            option = sc.nextInt();
-            switch (option) {
-                case 1 -> {
-                    addPlayer(players);
+            System.out.println("\n1. Dar de alta un jugador.\n2.Mostrar un jugador.\n3.Mostrar todos los jugadores.\n4.Dar de baja un juagador\n5.Ver jugadores en baja. \n0.SALIR");
+            try {
+                option = sc.nextInt();
+                exceptionControl = true;
+                switch (option) {
+                    case 0 -> {
+
+                        System.out.println("Saliendo del programa");
+                        exitProgram = true;
+                    }
+                    case 1 -> {
+                        addPlayer();
+                    }
+                    case 2 -> {
+                        viewOnePlayer();
+                    }
+                    case 3 -> {
+                        viewPlayers();
+                    }
+                    case 4 -> {
+                        restPlayer();
+                    }
+                    case 5 -> {
+                        viewPlayersRest();
+                    }
+                    default -> {
+                        exitProgram = false;
+                    }
                 }
-                case 2 -> {
-                    viewOnePlayer();
-                }
-                case 3 -> {
-                    viewPlayers();
-                }
-                case 4 -> {
-                    restPlayer();
-                }
-                case 5 -> {
-                    viewPlayersRest();
-                }
+            } catch (InputMismatchException e) {
+                System.out.println("Ingresa un numero por favor!\n");
+                sc.nextLine();
             }
 
-
-        } while (option > 6 | option < 1);
+        } while (!exceptionControl || !exitProgram);
     }
 }

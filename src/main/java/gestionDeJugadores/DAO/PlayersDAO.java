@@ -1,15 +1,16 @@
 package gestionDeJugadores.DAO;
 
 import gestionDeJugadores.DTO.Player;
+import gestionDeJugadores.FileManagment.FileManager;
 
 import java.util.ArrayList;
 
 import static gestionDeJugadores.Control.PrincipalClass.sc;
 
 public class PlayersDAO {
+    static FileManager fm = new FileManager();
 
-
-    public static void addPlayer(ArrayList<Player> players) {
+    public static void addPlayer() {
 
         String name;
         String lastName;
@@ -34,22 +35,30 @@ public class PlayersDAO {
         }
 
         Player player = new Player(name, lastName, age, dNI, active);
-        players.add(player);
-
-        players.forEach(jogador -> System.out.println(player.toString() + "\n"));
+        fm.writePLayers(player);
 
 
     }
 
     public static void viewOnePlayer() {
+        System.out.println("Ingresa el indice del jugador que quieres ver:");
+        int index = sc.nextInt();
+        fm.readOnlyIndex(index);
 
     }
 
     public static void viewPlayers() {
-
+        fm.readPlayers();
     }
 
     public static void restPlayer() {
+
+        int id;
+
+        fm.readPlayers();
+        System.out.println("Ingresa el id del jugador que quieres eliminar:");
+        sc.nextLine();
+        id = sc.nextInt();
 
     }
 
