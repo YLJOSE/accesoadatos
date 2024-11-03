@@ -7,7 +7,8 @@ import java.util.Arrays;
 
 
 public class FileManager {
-    final File file = new File("C:/Users/ALUMNO CCC - TARDE/Desktop/AD/csvPlayers.csv");
+    final File file = new File("C:\\Users\\juanc\\Documents\\prubeas csv\\jugadores.csv");
+    final File fileIndex = new File("C:\\Users\\juanc\\Documents\\prubeas csv\\idUlt.txt");
     static String[] insertText = new String[6];
 
     public void readPlayers() {
@@ -26,9 +27,12 @@ public class FileManager {
             lineRead = bufferedReader.readLine();
             while (lineRead != null) {
                 String[] campos = new String[]{lineRead};
+                Player player = new Player(campos[0],campos[1],Integer.parseInt(campos[2]),campos[3],Boolean.parseBoolean(campos[4]));
+                System.out.println(player.toString());
+                System.out.println("----------------------------");
                 System.out.println(Arrays.toString(campos));
                 lineRead = bufferedReader.readLine();
-
+// revisar codigo
             }
 
             bufferedReader.close();
@@ -72,5 +76,30 @@ public class FileManager {
 
     }
 
+    public int returnLastIndex() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileIndex));
+            int index = 0;
+            String lineRead = br.readLine();
+            while (lineRead != null) {
+                index = Integer.parseInt(lineRead);
+                lineRead = br.readLine();
+
+            }
+            return index;
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void writeLastIndex(int index){
+        try {
+            FileWriter fw = new FileWriter(fileIndex,true);
+            fw.append(String.valueOf(index));
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

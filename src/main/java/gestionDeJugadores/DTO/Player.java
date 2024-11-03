@@ -1,17 +1,21 @@
 package gestionDeJugadores.DTO;
 
+import gestionDeJugadores.FileManagment.FileManager;
+
 import java.io.Serializable;
 
 public class Player implements Serializable {
-    static private int id=0;
+    FileManager fm = new FileManager();
+    private int id;
     private String name;
     private String lastName;
     private int age;
     private String dNI;
     private Boolean active;
 
-    public Player( String name, String lastName, int age, String dNI, Boolean active) {
-        id ++;
+    public Player(String name, String lastName, int age, String dNI, Boolean active) {
+        this.id = fm.returnLastIndex() + 1;
+        fm.writeLastIndex(this.id);
         this.name = name;
         this.lastName = lastName;
         this.age = age;

@@ -22,7 +22,7 @@ public class Interfaz {
                 switch (option) {
                     case 0 -> {
 
-                        System.out.println("Saliendo del programa");
+                        System.out.println("Saliendo del programa......");
                         exitProgram = true;
                     }
                     case 1 -> {
