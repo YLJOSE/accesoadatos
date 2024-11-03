@@ -14,8 +14,17 @@ public class Player implements Serializable {
     private Boolean active;
 
     public Player(String name, String lastName, int age, String dNI, Boolean active) {
-        this.id = fm.returnLastIndex() + 1;
+        this.id = fm.returnLastIndex();
         fm.writeLastIndex(this.id);
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.dNI = dNI;
+        this.active = active;
+    }
+
+    public Player(int id, String name, String lastName, int age, String dNI, Boolean active) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -74,8 +83,10 @@ public class Player implements Serializable {
         this.active = active;
     }
 
+
     @Override
     public String toString() {
-        return "Jugador\n" + "id:" + id + "\nname:" + name + "\nlastName:" + lastName + "\nage:" + age + "\ndNI:" + dNI + "\nactive:" + active;
+        return String.format("player:\nid:%s\nname:%s\nlastName:%s\nage:%s\ndNI:%s\nactive:%s", id, name, lastName,
+                age, dNI, active);
     }
 }

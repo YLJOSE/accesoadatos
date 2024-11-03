@@ -26,13 +26,25 @@ public class FileManager {
 
             lineRead = bufferedReader.readLine();
             while (lineRead != null) {
-                String[] campos = new String[]{lineRead};
-                Player player = new Player(campos[0],campos[1],Integer.parseInt(campos[2]),campos[3],Boolean.parseBoolean(campos[4]));
+                String text = "";
+                String[] camposD = new String[6];
+
+                int iter = 0;
+                for (int i = 0; i < lineRead.length(); i++) {
+                    if (lineRead.charAt(i) == ';') {
+                        camposD[iter] = text;
+                        iter++;
+                        text = "";
+                    } else {
+                        text += lineRead.charAt(i);
+                    }
+                }
+                Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
+                System.out.println("----------------------------");
                 System.out.println(player.toString());
                 System.out.println("----------------------------");
-                System.out.println(Arrays.toString(campos));
                 lineRead = bufferedReader.readLine();
-// revisar codigo
+
             }
 
             bufferedReader.close();
@@ -73,6 +85,48 @@ public class FileManager {
     }
 
     public void readOnlyIndex(int index) {
+        String lineRead;
+        BufferedReader bufferedReader = null;
+
+        try {
+
+            bufferedReader = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+
+            lineRead = bufferedReader.readLine();
+            while (lineRead != null) {
+                String text = "";
+                String[] camposD = new String[6];
+
+                int iter = 0;
+                for (int i = 0; i < lineRead.length(); i++) {
+                    if (lineRead.charAt(i) == ';') {
+                        camposD[iter] = text;
+                        iter++;
+                        text = "";
+                    } else {
+                        text += lineRead.charAt(i);
+                    }
+                }
+                Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
+                System.out.println("----------------------------");
+
+                if (player.getId() == index) {
+                    System.out.println(player.toString());
+                }
+                System.out.println("----------------------------");
+                lineRead = bufferedReader.readLine();
+
+            }
+
+            bufferedReader.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -82,24 +136,76 @@ public class FileManager {
             int index = 0;
             String lineRead = br.readLine();
             while (lineRead != null) {
-                index = Integer.parseInt(lineRead);
+                index = lineRead.length();
                 lineRead = br.readLine();
 
             }
+            System.out.println(index);
             return index;
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-    public void writeLastIndex(int index){
+
+    public void writeLastIndex(int index) {
         try {
-            FileWriter fw = new FileWriter(fileIndex,true);
+            FileWriter fw = new FileWriter(fileIndex, true);
             fw.append(String.valueOf(index));
             fw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void viewNoActive() {
+        String lineRead;
+        BufferedReader bufferedReader = null;
+
+        try {
+
+            bufferedReader = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+
+            lineRead = bufferedReader.readLine();
+            while (lineRead != null) {
+                String text = "";
+                String[] camposD = new String[6];
+
+                int iter = 0;
+                for (int i = 0; i < lineRead.length(); i++) {
+                    if (lineRead.charAt(i) == ';') {
+                        camposD[iter] = text;
+                        iter++;
+                        text = "";
+                    } else {
+                        text += lineRead.charAt(i);
+                    }
+                }
+                Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
+                System.out.println("----------------------------");
+
+                if (!player.getActive()) {
+                    System.out.println(player.toString());
+                }
+                System.out.println("----------------------------");
+                lineRead = bufferedReader.readLine();
+
+            }
+
+            bufferedReader.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void changeActive(int id) {
+
+
     }
 
 }

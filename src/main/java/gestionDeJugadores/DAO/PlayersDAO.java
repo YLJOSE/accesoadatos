@@ -53,22 +53,22 @@ public class PlayersDAO {
 
     public static void restPlayer() {
         int id, confirm;
-        System.out.println("Ingresa el id del jugador que quieres eliminar:");
+        System.out.println("Ingresa el id del jugador que quieres dar de baja:");
         sc.nextLine();
         id = sc.nextInt();
         fm.readOnlyIndex(id);
         System.out.println("Ingresa 1 para confirmar la baja!");
         sc.nextLine();
         confirm = sc.nextInt();
-        if(confirm == 1){
-
-        }else{
-            System.out.println("Numweo mal ingresado intentelo de nuevo...");
+        if (confirm == 1) {
+            fm.changeActive(id);
+        } else {
+            System.out.println("Opcion mal ingresado intentelo de nuevo...");
         }
     }
 
     public static void viewPlayersRest() {
-
+        fm.viewNoActive();
     }
 
 }

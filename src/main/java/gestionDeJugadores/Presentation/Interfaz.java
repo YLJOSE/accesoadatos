@@ -8,7 +8,6 @@ import static gestionDeJugadores.DAO.PlayersDAO.*;
 public class Interfaz {
 
 
-
     public static void menu() {
 
         int option;
