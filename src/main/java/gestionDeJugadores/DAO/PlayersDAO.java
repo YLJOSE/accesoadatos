@@ -63,7 +63,7 @@ public class PlayersDAO {
         if (confirm == 1) {
             fm.changeActive(id);
         } else {
-            System.out.println("Opcion mal ingresado intentelo de nuevo...");
+            System.out.println("Opcion mal ingresado intentelo de nuevo....");
         }
     }
 

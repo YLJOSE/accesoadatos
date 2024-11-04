@@ -86,7 +86,7 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("player:\nid:%s\nname:%s\nlastName:%s\nage:%s\ndNI:%s\nactive:%s", id, name, lastName,
+        return String.format("Player:\nid:%s\nname:%s\nlastName:%s\nage:%s\ndNI:%s\nactive:%s", id, name, lastName,
                 age, dNI, active);
     }
 }
