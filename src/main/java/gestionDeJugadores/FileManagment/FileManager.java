@@ -186,15 +186,16 @@ public class FileManager {
                     }
                 }
                 Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
-                System.out.println("-----------------------------");
+                System.out.println("----------------------------");
 
                 if (!player.getActive()) {
                     System.out.println(player.toString());
                 }
-                System.out.println("-----------------------------");
+                System.out.println("----------------------------");
                 lineRead = bufferedReader.readLine();
 
             }
+
             bufferedReader.close();
 
         } catch (IOException e) {

@@ -14,8 +14,8 @@ public class Player implements Serializable {
     private Boolean active;
 
     public Player(String name, String lastName, int age, String dNI, Boolean active) {
-        this.id = fm.returnLastIndex();
-        fm.writeLastIndex(this.id);
+//        this.id = fm.returnLastIndex();
+//        fm.writeLastIndex(this.id);
         this.name = name;
         this.lastName = lastName;
         this.age = age;
