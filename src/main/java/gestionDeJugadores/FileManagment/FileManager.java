@@ -7,8 +7,8 @@ import java.util.Arrays;
 
 
 public class FileManager {
-    final File file = new File("C:\\Users\\juanc\\Documents\\prubeas csv\\jugadores.csv");
-    final File fileIndex = new File("C:\\Users\\juanc\\Documents\\prubeas csv\\idUlt.txt");
+    final File file = new File("C:\\Users\\ALUMNO CCC - TARDE\\Desktop\\AD\\csvPlayers.csv");
+    final File fileIndex = new File("C:\\Users\\ALUMNO CCC - TARDE\\Desktop\\AD\\num.txt");
     static String[] insertText = new String[6];
 
     public void readPlayers() {
@@ -28,9 +28,10 @@ public class FileManager {
             while (lineRead != null) {
                 String text = "";
                 String[] camposD = new String[6];
-
+                int ayuda = lineRead.length();
                 int iter = 0;
                 for (int i = 0; i < lineRead.length(); i++) {
+
                     if (lineRead.charAt(i) == ';') {
                         camposD[iter] = text;
                         iter++;
@@ -38,7 +39,12 @@ public class FileManager {
                     } else {
                         text += lineRead.charAt(i);
                     }
+                    if (i == ayuda - 1) {
+                        camposD[iter] = text;
+                    }
+
                 }
+
                 Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
                 System.out.println("----------------------------");
                 System.out.println(player.toString());
@@ -100,7 +106,7 @@ public class FileManager {
             while (lineRead != null) {
                 String text = "";
                 String[] camposD = new String[6];
-
+                int ayuda = lineRead.length();
                 int iter = 0;
                 for (int i = 0; i < lineRead.length(); i++) {
                     if (lineRead.charAt(i) == ';') {
@@ -109,6 +115,9 @@ public class FileManager {
                         text = "";
                     } else {
                         text += lineRead.charAt(i);
+                    }
+                    if (i == ayuda - 1) {
+                        camposD[iter] = text;
                     }
                 }
                 Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
@@ -173,6 +182,7 @@ public class FileManager {
             lineRead = bufferedReader.readLine();
             while (lineRead != null) {
                 String text = "";
+                int ayuda = lineRead.length();
                 String[] camposD = new String[6];
 
                 int iter = 0;
@@ -183,6 +193,9 @@ public class FileManager {
                         text = "";
                     } else {
                         text += lineRead.charAt(i);
+                    }
+                    if (i == ayuda - 1) {
+                        camposD[iter] = text;
                     }
                 }
                 Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
@@ -201,11 +214,6 @@ public class FileManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void changeActive(int id) {
-
-
     }
 
 }

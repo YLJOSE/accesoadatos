@@ -14,7 +14,7 @@ public class Interfaz {
         boolean exceptionControl = false;
         boolean exitProgram = false;
         do {
-            System.out.println("\n1. Dar de alta un jugador.\n2.Mostrar un jugador.\n3.Mostrar todos los jugadores.\n4.Dar de baja un juagador\n5.Ver jugadores en baja. \n0.SALIR");
+            System.out.println("\n1. Dar de alta un jugador.\n2.Mostrar un jugador.\n3.Mostrar todos los jugadores.\n4.Ver jugadores en baja. \n0.SALIR");
             try {
                 option = sc.nextInt();
                 exceptionControl = true;
@@ -34,9 +34,6 @@ public class Interfaz {
                         viewPlayers();
                     }
                     case 4 -> {
-                        restPlayer();
-                    }
-                    case 5 -> {
                         viewPlayersRest();
                     }
                     default -> {

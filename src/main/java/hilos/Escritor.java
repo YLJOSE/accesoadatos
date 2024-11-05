@@ -2,7 +2,9 @@ package hilos;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 /*
@@ -16,7 +18,8 @@ import java.time.LocalDateTime;
 public class Escritor implements Runnable {
 
     private final String file = "C:\\Users\\ALUMNO CCC - TARDE\\Desktop\\AD\\hilos.txt";
-    LocalDateTime date = LocalDateTime.now();
+    Date date = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private String dateF;
     private String title;
 
@@ -26,8 +29,7 @@ public class Escritor implements Runnable {
 
     @Override
     public void run() {
-
-        dateF = date.toLocalDate() + " " + date.toLocalTime();
+        dateF = dateFormat.format(date);
         System.out.println(dateF);
         System.out.println("Soy el hilo: " + title);
         writeTxt();
