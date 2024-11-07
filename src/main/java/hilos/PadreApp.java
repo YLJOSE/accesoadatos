@@ -4,14 +4,11 @@ import java.util.ArrayList;
 
 public class PadreApp {
     public static void main(String[] args) {
-
-        String nameHilo;
-        for (int i = 0; i < 10; i++) {
-            nameHilo = String.valueOf(i);
-            Padre hilo = new Padre();
-            hilo.setTitle(nameHilo);
-
-
+        int numHilos = 6;
+        Thread[] arrayHilos = new Thread[numHilos];
+        for (int i = 0; i < numHilos; i++) {
+            arrayHilos[i] = new Thread(new Padre(numHilos));
+            arrayHilos[i].start();
         }
 
     }
