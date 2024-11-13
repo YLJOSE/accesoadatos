@@ -1,6 +1,5 @@
 package hilos;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Padre extends Thread implements Runnable {
