@@ -1,0 +1,14 @@
+# codigo de base de datos para hacerlo en CCC
+
+Create database if not exists gestionUsuarios;
+use gestionUsuarios;
+
+create table User(
+id int auto_increment primary key,
+id_usuario varchar(15),
+contrasenna varchar(15),
+horaFecha_ultAcCorrect varchar(20),
+horaFecha_ultAcErr varchar(20),
+tipoUser Enum('admin', 'usuario_consulta'),
+activo boolean not null default 1
+);
