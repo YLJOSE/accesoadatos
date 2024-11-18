@@ -10,7 +10,7 @@ public class ControlBBDD {
 
     public ControlBBDD() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/club_socios", USER, PASSWORD);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/gestionUsuarios", USER, PASSWORD);
             if (connection != null) {
                 System.out.println("INFO. Successfully connected to MYSQL DB");
             }
@@ -20,12 +20,12 @@ public class ControlBBDD {
 
     }
 
-    public void muestraSocioById(long socio_id, String password) {
+    public void muestraSocioById(String socio_id, String password) {
         try {
             if (connection != null) {
-                String query = "select * from socios where id_socio = ? and password =?";
+                String query = "select * from User where id_usuario = ? and contrasenna =?";
                 PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setLong(1, socio_id);
+                stmt.setString(1, socio_id);
                 stmt.setString(2, password);
                 System.out.println("CONSULTA =====> " + stmt.toString() + "\n=========================");
                 ResultSet rst = stmt.executeQuery();

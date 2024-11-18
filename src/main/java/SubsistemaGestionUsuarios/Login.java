@@ -1,13 +1,10 @@
 package SubsistemaGestionUsuarios;
 
+import static SubsistemaGestionUsuarios.InterfaceGrap.login;
+
 public class Login {
 
-    public Login(long id_user, String password) {
-        ControlBBDD bbdd = new ControlBBDD();
-
-        bbdd.muestraSocioById(id_user, password);
-
-
-
+    public static void main(String[] args) {
+        login();
     }
 }
