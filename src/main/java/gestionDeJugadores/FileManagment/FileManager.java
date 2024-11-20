@@ -7,9 +7,9 @@ import java.util.Arrays;
 
 
 public class FileManager {
-    final File file = new File("C:\\Users\\ALUMNO CCC - TARDE\\Desktop\\AD\\csvPlayers.csv");
-    final File fileIndex = new File("C:\\Users\\ALUMNO CCC - TARDE\\Desktop\\AD\\num.txt");
-    static String[] insertText = new String[6];
+    private final File file = new File("C:\\Users\\ALUMNO CCC - TARDE\\Desktop\\AD\\csvPlayers.csv");
+    private final File fileIndex = new File("C:\\Users\\ALUMNO CCC - TARDE\\Desktop\\AD\\num.txt");
+    private static String[] insertText = new String[6];
 
     public void readPlayers() {
 
@@ -27,23 +27,8 @@ public class FileManager {
             lineRead = bufferedReader.readLine();
             while (lineRead != null) {
                 String text = "";
-                String[] camposD = new String[6];
-                int ayuda = lineRead.length();
-                int iter = 0;
-                for (int i = 0; i < lineRead.length(); i++) {
-
-                    if (lineRead.charAt(i) == ';') {
-                        camposD[iter] = text;
-                        iter++;
-                        text = "";
-                    } else {
-                        text += lineRead.charAt(i);
-                    }
-                    if (i == ayuda - 1) {
-                        camposD[iter] = text;
-                    }
-
-                }
+                String[] camposD = null;
+                camposD = lineRead.split(";");
 
                 Player player = new Player(Integer.parseInt(camposD[0]), camposD[1], camposD[2], Integer.parseInt(camposD[3]), camposD[4], Boolean.parseBoolean(camposD[5]));
                 System.out.println("----------------------------");
@@ -62,7 +47,7 @@ public class FileManager {
 
     }
 
-    public void writePLayers(Player player) {
+    public void writePLayers(Player player) throws RuntimeException {
 
         insertText[0] = String.valueOf(player.getId());
         insertText[1] = player.getName();

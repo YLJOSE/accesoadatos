@@ -17,7 +17,7 @@ public class controlAdmin {
         boolean exceptionControl = false;
         boolean exitProgram = false;
         do {
-            System.out.println("\n1. Dar de alta un usuario.\n2.Mostrar un usuario. \n0.SALIR");
+            System.out.println("\n1. Dar de alta un usuario.\n2.Mostrar usuarios. \n0.SALIR");
             try {
                 option = sc.nextInt();
                 exceptionControl = true;

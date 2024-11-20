@@ -12,23 +12,19 @@ public class PlayersDAO {
 
     public static void addPlayer() {
 
-        String name;
-        String lastName;
-        int age;
-        String dNI;
         boolean active = false;
         int optionActive;
         sc.nextLine();
         System.out.println("Nombre:");
-        name = sc.nextLine();
+        String name = sc.nextLine();
         System.out.println("Apellido:");
-        lastName = sc.nextLine();
+        String lastName = sc.nextLine();
         System.out.println("Edad:");
-        age = sc.nextInt();
+        int age = sc.nextInt();
         sc.nextLine();
         System.out.println("DNI:");
-        dNI = sc.nextLine();
-        System.out.println("Está activo: 1. si 2. No");
+        String dNI = sc.nextLine();
+        System.out.println("Está activo: 1. sí 2. No");
         optionActive = sc.nextInt();
         if (optionActive == 1) {
             active = true;

@@ -26,7 +26,8 @@ public class UserMetodos {
     }
 
     public static void verUsuarios() {
-
+        ControlBBDD bbdd = new ControlBBDD();
+        bbdd.verUsuarios();
     }
 
     // metodo para obtener el hash MD5

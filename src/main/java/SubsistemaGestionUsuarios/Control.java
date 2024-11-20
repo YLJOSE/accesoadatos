@@ -15,10 +15,7 @@ public class Control {
         passwd = JOptionPane.showInputDialog("Ingrese la contraseña:");
 
         ControlBBDD bbdd = new ControlBBDD();
-        bbdd.muestraSocioById(id_User,passwd);
-
-        String a = getHash(passwd);
-        System.out.println(a);
+        bbdd.consultaLogin(id_User,passwd);
 
     }
 }
