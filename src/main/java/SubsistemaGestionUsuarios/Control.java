@@ -2,8 +2,6 @@ package SubsistemaGestionUsuarios;
 
 import javax.swing.*;
 
-import static SubsistemaGestionUsuarios.UserMetodos.getHash;
-
 public class Control {
     public static void main(String[] args) {
      login();
