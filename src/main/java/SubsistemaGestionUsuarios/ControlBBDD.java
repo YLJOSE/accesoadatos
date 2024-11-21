@@ -1,13 +1,12 @@
 package SubsistemaGestionUsuarios;
 
+import java.io.Console;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.GregorianCalendar;
 
 import static SubsistemaGestionUsuarios.controlAdmin.menu;
+import static java.lang.Thread.sleep;
 
 public class ControlBBDD {
     private int port = 3307;
@@ -20,6 +19,7 @@ public class ControlBBDD {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/gestionUsuarios", USER, PASSWORD);
             if (connection != null) {
                 System.out.println("INFO. Successfully connected to MYSQL DB");
+
             }
         } catch (SQLException e) {
             e.getErrorCode();
@@ -43,23 +43,36 @@ public class ControlBBDD {
                 LocalDateTime ld = LocalDateTime.now();
 
                 ResultSet rst = stmt.executeQuery();
-                while (rst.next()) {
-                    id = rst.getInt("id");
-                    isActive = (Boolean) rst.getBoolean("activo");
-                    verificarUsuario = String.valueOf(rst.getObject("tipoUser"));
 
-                    if (isActive && verificarUsuario.equals("Admin") || isActive && verificarUsuario.equals("Usuario_consulta")) {
+                if(rst.next()){
+                    do{
+                        id = rst.getInt("id");
+                        isActive = (Boolean) rst.getBoolean("activo");
+                        verificarUsuario = String.valueOf(rst.getObject("tipoUser"));
 
-                        updateFechaCorrecta(String.valueOf(ld.format(dtf)), id);
-                        if (verificarUsuario.equals("Admin")) {
-                            menu();
+                        if (isActive && verificarUsuario.equals("Admin") || isActive && verificarUsuario.equals("Usuario_consulta")) {
+
+                            updateFechaCorrecta(String.valueOf(ld.format(dtf)), id);
+                            if (verificarUsuario.equals("Admin")) {
+                                menu();
+                            }
+
                         }
-
-                    } else {
-                        UpdateFechaIncorrect(String.valueOf(ld.format(dtf)), id);
-                        System.err.println("Error al login");
+                    }while(rst.next());
+                }else{
+                    updateFechaIncorrect(String.valueOf(ld.format(dtf)), verId(user_id));
+                    System.err.println("............INFO............");
+                    try {
+                        sleep(3000);
+                        System.err.println("........ERROR AL LOGIN .....");
+                        sleep(3000);
+                        System.err.println("......Revisa contraseña.....");
+                        System.err.println("............................");
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
                     }
                 }
+
                 rst.close();
                 stmt.close();
             }
@@ -93,10 +106,10 @@ public class ControlBBDD {
         }
     }
 
-    public void addUser(String user_id, String password, String tipoUsuario) {
+    public void addUser(User user) {
         try {
             if (connection != null) {
-                String query = "insert into User(id_usuario,contrasenna,tipoUser) values(" + "'" + user_id + "','" + password + "','" + tipoUsuario + "');";
+                String query = "insert into User(id_usuario,contrasenna,tipoUser) values(" + "'" + user.getId_user() + "','" + user.getPassword() + "','" + user.getTypeUser() + "');";
                 System.out.println(query);
                 PreparedStatement stmt = connection.prepareStatement(query);
                 stmt.executeUpdate();
@@ -127,7 +140,7 @@ public class ControlBBDD {
             e.getErrorCode();
         }
     }
-    public void UpdateFechaIncorrect(String fecha, int id){
+    public void updateFechaIncorrect(String fecha, int id){
         try {
             if (connection != null) {
                 String query = "update gestionusuarios.User set horaFecha_ultAcErr ='" + fecha + "' where id ='" + id + "';";
@@ -138,5 +151,25 @@ public class ControlBBDD {
         } catch (SQLException e) {
             e.getErrorCode();
         }
+    }
+
+    public int verId(String user_id){
+        int id;
+        try {
+            if (connection != null) {
+                String query = "select * from User where id_usuario =?;";
+                PreparedStatement stmt = connection.prepareStatement(query);
+                stmt.setString(1, user_id);
+                ResultSet rst = stmt.executeQuery();
+                while (rst.next()) {
+                   return id = rst.getInt("id");
+                }
+                rst.close();
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            e.getErrorCode();
+        }
+        return 0;
     }
 }

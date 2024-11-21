@@ -10,19 +10,20 @@ public class UserMetodos {
         String id_Usuario, passwd, tipoUsuario;
         String passwrdHash;
         ControlBBDD bbdd = new ControlBBDD();
-        /**************************************/
         System.out.println("Ingrese el id del usuario:");
         id_Usuario = sc.nextLine();
         System.out.println("Ingrese la contraseña:");
         passwd = sc.nextLine();
-        System.out.println("Ingresa el tipo de usuario:");
+        System.out.println("Ingresa el tipo de usuario (Admin | Usuario_consulta):");
         tipoUsuario = sc.nextLine();
-
         passwrdHash = getHash(passwd);
-        /************************/
-        bbdd.addUser(id_Usuario, passwrdHash, tipoUsuario);
-
-
+        User user = new User(id_Usuario, passwrdHash, "", "", tipoUsuario);
+        if (passwd.length() < 5) {
+            System.err.println("ERROR:.....LA CONTRASEÑA DEBE SER MAYOR DE 5 DIGITOS.....");
+            altaUsuario();
+        } else {
+            bbdd.addUser(user);
+        }
     }
 
     public static void verUsuarios() {

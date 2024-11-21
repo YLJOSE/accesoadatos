@@ -1,8 +1,7 @@
 package SubsistemaGestionUsuarios;
 
-import javax.swing.*;
+
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 import static SubsistemaGestionUsuarios.UserMetodos.altaUsuario;
 import static SubsistemaGestionUsuarios.UserMetodos.verUsuarios;
@@ -23,7 +22,6 @@ public class controlAdmin {
                 exceptionControl = true;
                 switch (option) {
                     case 0 -> {
-
                         System.out.println("Saliendo del programa........");
                         exitProgram = true;
                     }
