@@ -10,7 +10,7 @@ import static gestionDeJugadores.Control.PrincipalClass.sc;
 
 public class controlAdmin {
 
-    public static void menu() {
+    public static void menuAdmin(ControlBBDD bbdd) {
 
         int option;
         boolean exceptionControl = false;
@@ -23,12 +23,42 @@ public class controlAdmin {
                 switch (option) {
                     case 0 -> {
                         System.out.println("Saliendo del programa........");
+                        bbdd.closeConection();
                         exitProgram = true;
                     }
                     case 1 -> {
                         altaUsuario();
                     }
                     case 2 -> {
+                        verUsuarios();
+                    }
+                    default -> {
+                        exitProgram = false;
+                    }
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Ingresa un numero por favor!\n");
+                sc.nextLine();
+            }
+
+        } while (!exceptionControl || !exitProgram);
+    }
+    public static void menuUsuarioConsulta(ControlBBDD bbdd){
+        int option;
+        boolean exceptionControl = false;
+        boolean exitProgram = false;
+        do {
+            System.out.println("\n1.Mostrar usuarios. \n0.SALIR");
+            try {
+                option = sc.nextInt();
+                exceptionControl = true;
+                switch (option) {
+                    case 0 -> {
+                        System.out.println("Saliendo del programa........");
+                        bbdd.closeConection();
+                        exitProgram = true;
+                    }
+                    case 1 -> {
                         verUsuarios();
                     }
                     default -> {

@@ -1,11 +1,12 @@
 package SubsistemaGestionUsuarios;
 
-import java.io.Console;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static SubsistemaGestionUsuarios.controlAdmin.menu;
+import static SubsistemaGestionUsuarios.UserMetodos.getHash;
+import static SubsistemaGestionUsuarios.controlAdmin.menuAdmin;
+import static SubsistemaGestionUsuarios.controlAdmin.menuUsuarioConsulta;
 import static java.lang.Thread.sleep;
 
 public class ControlBBDD {
@@ -37,29 +38,30 @@ public class ControlBBDD {
                 String query = "select * from User where id_usuario = ? and contrasenna =?";
                 PreparedStatement stmt = connection.prepareStatement(query);
                 stmt.setString(1, user_id);
-                stmt.setString(2, password);
+                stmt.setString(2, getHash(password));
 
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
                 LocalDateTime ld = LocalDateTime.now();
 
                 ResultSet rst = stmt.executeQuery();
 
-                if(rst.next()){
-                    do{
+                if (rst.next()) {
+                    do {
                         id = rst.getInt("id");
                         isActive = (Boolean) rst.getBoolean("activo");
                         verificarUsuario = String.valueOf(rst.getObject("tipoUser"));
 
-                        if (isActive && verificarUsuario.equals("Admin") || isActive && verificarUsuario.equals("Usuario_consulta")) {
-
+                        if (isActive) {
                             updateFechaCorrecta(String.valueOf(ld.format(dtf)), id);
                             if (verificarUsuario.equals("Admin")) {
-                                menu();
+                                menuAdmin(this);
+                            } else {
+                                menuUsuarioConsulta(this);
                             }
 
                         }
-                    }while(rst.next());
-                }else{
+                    } while (rst.next());
+                } else {
                     updateFechaIncorrect(String.valueOf(ld.format(dtf)), verId(user_id));
                     System.err.println("............INFO............");
                     try {
@@ -89,13 +91,7 @@ public class ControlBBDD {
 
                 ResultSet rst = stmt.executeQuery();
                 while (rst.next()) {
-                    System.out.println("Id: " + rst.getObject("id") +
-                            "\nId_Usuario: " + rst.getObject("id_usuario") +
-                            "\nContraseña: " + rst.getObject("contrasenna") +
-                            "\nFecha ultimo acceso correcto: " + rst.getObject("horaFecha_ultAcCorrect") +
-                            "\nFecha ultimo acceso Erroneo: " + rst.getObject("horaFecha_ultAcErr") +
-                            "\nTipo de usuario: " + rst.getObject("tipoUser") +
-                            "\nActivo: " + rst.getObject("activo"));
+                    System.out.println("Id: " + rst.getObject("id") + "\nId_Usuario: " + rst.getObject("id_usuario") + "\nContraseña: " + rst.getObject("contrasenna") + "\nFecha ultimo acceso correcto: " + rst.getObject("horaFecha_ultAcCorrect") + "\nFecha ultimo acceso Erroneo: " + rst.getObject("horaFecha_ultAcErr") + "\nTipo de usuario: " + rst.getObject("tipoUser") + "\nActivo: " + rst.getObject("activo"));
                     System.out.println("...........................");
                 }
                 rst.close();
@@ -140,7 +136,8 @@ public class ControlBBDD {
             e.getErrorCode();
         }
     }
-    public void updateFechaIncorrect(String fecha, int id){
+
+    public void updateFechaIncorrect(String fecha, int id) {
         try {
             if (connection != null) {
                 String query = "update gestionusuarios.User set horaFecha_ultAcErr ='" + fecha + "' where id ='" + id + "';";
@@ -153,7 +150,7 @@ public class ControlBBDD {
         }
     }
 
-    public int verId(String user_id){
+    public int verId(String user_id) {
         int id;
         try {
             if (connection != null) {
@@ -162,7 +159,7 @@ public class ControlBBDD {
                 stmt.setString(1, user_id);
                 ResultSet rst = stmt.executeQuery();
                 while (rst.next()) {
-                   return id = rst.getInt("id");
+                    return id = rst.getInt("id");
                 }
                 rst.close();
                 stmt.close();
