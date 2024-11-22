@@ -9,7 +9,7 @@ import static gestionDeJugadores.Control.PrincipalClass.sc;
 
 
 public class controlAdmin {
-
+// menú para el administrador
     public static void menuAdmin(ControlBBDD bbdd) {
 
         int option;
@@ -43,6 +43,7 @@ public class controlAdmin {
 
         } while (!exceptionControl || !exitProgram);
     }
+    // menú para el usuario consulta
     public static void menuUsuarioConsulta(ControlBBDD bbdd){
         int option;
         boolean exceptionControl = false;

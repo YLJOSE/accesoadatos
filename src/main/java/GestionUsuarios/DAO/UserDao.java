@@ -1,9 +1,11 @@
-package SubsistemaGestionUsuarios;
+package GestionUsuarios.DAO;
+
+import SubsistemaGestionUsuarios.ControlBBDD;
+import SubsistemaGestionUsuarios.User;
 
 import java.util.Scanner;
 
-public class UserMetodos {
-    // metodo donde pedimos los datos al usuario administrador para dar de alta un nuevo usuario
+public class UserDao {
     public static void altaUsuario() {
         Scanner sc = new Scanner(System.in);
         String id_Usuario, passwd, tipoUsuario;
@@ -25,7 +27,6 @@ public class UserMetodos {
         }
     }
 
-    // metodo donde podremos ver los usuarios, este metodo se utilizará en el menú
     public static void verUsuarios() {
         ControlBBDD bbdd = new ControlBBDD();
         bbdd.verUsuarios();
@@ -38,8 +39,6 @@ public class UserMetodos {
             byte[] array = md.digest(txt.getBytes());
             StringBuffer sb = new StringBuffer();
             for (int i = 0; i < array.length; ++i) {
-                //array[i] & 0xFF: Convierte el byte en un valor entero no negativo (esto es necesario porque los bytes en Java son valores con signo).
-                //Integer.toHexString(...): Convierte el valor entero en su representación en formato hexadecimal.
                 sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
             }
             return sb.toString();
@@ -48,5 +47,4 @@ public class UserMetodos {
         }
         return null;
     }
-
 }

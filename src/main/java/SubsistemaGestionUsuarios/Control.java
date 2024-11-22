@@ -6,6 +6,7 @@ public class Control {
     public static void main(String[] args) {
      login();
     }
+    // metodo donde solicito datos al usuario y mediante el objeto utilizó el metodo de consulta
     public static void login() {
 
         String id_User, passwd;
@@ -17,7 +18,8 @@ public class Control {
 
     }
 }
-/*************Admin*****************
+/*
+ * ***********Admin*****************
  * ******id_usuario = 123 **********
  * ******contrasenna = pepe17 ******
  * *********************************
@@ -25,4 +27,4 @@ public class Control {
  * ******id_usuario = 12pepe *******
  * ******contrasenna = pepe04 ******
  * *********************************
- **/
+ * */

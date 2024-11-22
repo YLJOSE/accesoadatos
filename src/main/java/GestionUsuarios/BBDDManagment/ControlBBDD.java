@@ -1,4 +1,6 @@
-package SubsistemaGestionUsuarios;
+package GestionUsuarios.BBDDManagment;
+
+import SubsistemaGestionUsuarios.User;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -15,12 +17,12 @@ public class ControlBBDD {
     private final String PASSWORD = "";
     private Connection connection;
 
-    // constructor que permite la conección a la base de datos
     public ControlBBDD() {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/gestionUsuarios", USER, PASSWORD);
             if (connection != null) {
                 System.out.println("INFO. Successfully connected to MYSQL DB");
+
             }
         } catch (SQLException e) {
             e.getErrorCode();
@@ -28,7 +30,7 @@ public class ControlBBDD {
 
     }
 
-    // metodo de consulta a la bbdd al momento de login del usuario
+
     public void consultaLogin(String user_id, String password) {
         String verificarUsuario;
         boolean isActive;
@@ -74,6 +76,7 @@ public class ControlBBDD {
                         throw new RuntimeException(e);
                     }
                 }
+
                 rst.close();
                 stmt.close();
             }
@@ -82,7 +85,6 @@ public class ControlBBDD {
         }
     }
 
-    // metodo que nos permite listar todos los usuarios
     public void verUsuarios() {
         try {
             if (connection != null) {
@@ -102,7 +104,6 @@ public class ControlBBDD {
         }
     }
 
-    // metodo que nos permite añadir a la bbdd un nuevo usuario
     public void addUser(User user) {
         try {
             if (connection != null) {
@@ -117,7 +118,6 @@ public class ControlBBDD {
         }
     }
 
-    // metodo para cerrar la conección a la base de datos
     public void closeConection() {
         try {
             connection.close();
@@ -126,7 +126,6 @@ public class ControlBBDD {
         }
     }
 
-    // metodo para actualizar la fecha y hora de un acceso correcto.
     public void updateFechaCorrecta(String fecha, int id) {
         try {
             if (connection != null) {
@@ -140,7 +139,6 @@ public class ControlBBDD {
         }
     }
 
-    // metodo que nos permite actualizar la fecha y hora del acceso incorrecto
     public void updateFechaIncorrect(String fecha, int id) {
         try {
             if (connection != null) {
@@ -154,7 +152,6 @@ public class ControlBBDD {
         }
     }
 
-    // metodo que nos permite saber el id del usuario que falló en el login
     public int verId(String user_id) {
         int id;
         try {
