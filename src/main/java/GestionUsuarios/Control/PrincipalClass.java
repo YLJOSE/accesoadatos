@@ -1,10 +1,12 @@
-package SubsistemaGestionUsuarios;
+package GestionUsuarios.Control;
+
+import SubsistemaGestionUsuarios.ControlBBDD;
 
 import javax.swing.*;
 
-public class Control {
+public class PrincipalClass {
     public static void main(String[] args) {
-     login();
+        login();
     }
     public static void login() {
 
@@ -17,12 +19,3 @@ public class Control {
 
     }
 }
-/*************Admin*****************
- * ******id_usuario = 123 **********
- * ******contrasenna = pepe17 ******
- * *********************************
- * ********usuario_consulta*********
- * ******id_usuario = 12pepe *******
- * ******contrasenna = pepe04 ******
- * *********************************
- **/
