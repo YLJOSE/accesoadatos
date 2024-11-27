@@ -2,7 +2,7 @@ package Joyeria;
 
 import java.util.Random;
 
-public class Empleado extends Thread {
+public class Empleado implements Runnable {
     @Override
     public void run() {
 
