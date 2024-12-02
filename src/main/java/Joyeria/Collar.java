@@ -1,25 +1,32 @@
 package Joyeria;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Collar {
-    private final int TOTAL_PERLAS = 20;
-    private static int count = 0;
+    private List<Perla> perlas;
 
     public Collar() {
+        this.perlas = new ArrayList<>();
     }
 
-    public void insertarPerla(int cantidad, String color) throws NoMaterialsLeft{
-        count += cantidad;
-        if (cantidad == TOTAL_PERLAS) {
-            System.out.println("Collar realizado con exito!!!");
-        } else if (cantidad < TOTAL_PERLAS) {
-            NoMaterialsLeft exception = new NoMaterialsLeft(color);
-            System.out.println(exception.getMessage());
+    public synchronized void insertarPerla(Perla perla) {
+        if (perlas.size() < 20) {
+            perlas.add(perla);
         }
+    }
+
+    public boolean isComplete() {
+        return perlas.size() == 20;
+    }
+
+    public List<Perla> getPerlas() {
+        return perlas;
     }
 }
 
 class NoMaterialsLeft extends Exception {
     public NoMaterialsLeft(String color) {
-        super("Se acabaron las perlas de color " + color);
+        super(color);
     }
 }
