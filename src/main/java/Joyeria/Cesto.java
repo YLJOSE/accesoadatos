@@ -24,9 +24,15 @@ public class Cesto {
 
         if (color == 1) {
             contadorBlue++;
-        }
-        if (color == 2) {
+        } else if (color == 2) {
             contadorWht++;
+        }
+
+        if (MAX_BLUE == contadorBlue && MAX_WHT == contadorWht) {
+            System.out.println("Ya no hay mas perlas");
+            this.c = true;
+            throw new NoMaterialsLeft("Ya no hay mas perlas");
+
         }
 
         if (MAX_WHT == contadorWht) {
@@ -36,13 +42,6 @@ public class Cesto {
             System.out.println("no hay mas perlas azules");
             pa = true;
         }
-        if (MAX_BLUE == contadorBlue && MAX_WHT == contadorWht) {
-            System.out.println("Ya no hay mas perlas");
-            this.c = true;
-            throw new NoMaterialsLeft("Ya no hay mas perlas");
-
-        }
-
 
     }
 

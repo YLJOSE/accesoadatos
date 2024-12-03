@@ -21,7 +21,6 @@ public class Empleado extends Thread {
             try {
                 int num = 1;
 
-
                 if (this.cesto.getFinishPerlasAzules()) {
                     num = 2;
                 }
