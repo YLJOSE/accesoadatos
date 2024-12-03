@@ -16,25 +16,34 @@ public class Empleado extends Thread {
 
     @Override
     public void run() {
-        do{
-            int num;
-            Random rnd = new Random();
-            do {
-                num = rnd.nextInt(3);
-            } while (num == 0);
-           // System.out.println(num);
-            cesto.cogerPerla(num);
-            collar.insertarPerla(num);
-            if (collar.terminoCollar()) {
-                System.out.println(this.getName().toString() +" Terminé un collar");
-                try {
-                    sleep(5000);
-                    // this.collar = new Collar();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
 
-        }while(!cesto.getFinish());
+        do {
+            try {
+                int num = 1;
+
+
+                if (this.cesto.getFinishPerlasAzules()) {
+                    num = 2;
+                }
+                System.out.println(num);
+
+                cesto.cogerPerla(num);
+                collar.insertarPerla(num);
+                if (collar.terminoCollar()) {
+                    collaresMixtos.add(collar);
+                    try {
+                        Thread.sleep(5000);
+                        this.collar = new Collar();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                System.out.println(Thread.currentThread().getName() + ": " + this.cesto.getContadorBlue() + " " + this.cesto.getContadorWht());
+            } catch (NoMaterialsLeft e) {
+                throw new RuntimeException(e);
+            }
+        } while (!this.cesto.getFinish());
+
+        System.out.println("Soy.. " + this.getName().toString() + " y hice " + collaresMixtos.size());
     }
 }

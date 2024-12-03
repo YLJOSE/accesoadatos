@@ -12,19 +12,20 @@ public class Collar {
     }
 
     public void insertarPerla(int color) {
-
+        if (o.size() == 20) {
+            this.collarFinish = true;
+        } else {
             if (color == 1) {
                 o.add(new Perla("Blue"));
             } else {
                 o.add(new Perla("white"));
             }
-            if(o.size() == 20){
-                this.collarFinish = true;
+        }
 
-            }
 
     }
-    public boolean terminoCollar(){
+
+    public boolean terminoCollar() {
         return this.collarFinish;
     }
 

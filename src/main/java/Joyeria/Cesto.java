@@ -5,34 +5,52 @@ public class Cesto {
     private final int MAX_WHT = 10;
     private int contadorBlue = 0;
     private int contadorWht = 0;
-private boolean c = false;
+    private boolean c = false;
+    private boolean pa = false;
+
+    public int getContadorBlue() {
+        return this.contadorBlue;
+    }
+
+    public int getContadorWht() {
+        return this.contadorWht;
+    }
+
     public Cesto() {
 
     }
 
-    public void cogerPerla(int color) {
-        if (MAX_BLUE == contadorBlue) {
-            System.out.println("no hay mas perlas azules");
+    public void cogerPerla(int color) throws NoMaterialsLeft {
+
+        if (color == 1) {
+            contadorBlue++;
         }
+        if (color == 2) {
+            contadorWht++;
+        }
+
         if (MAX_WHT == contadorWht) {
             System.out.println("no hay mas perlas blancas");
         }
+        if (MAX_BLUE == contadorBlue) {
+            System.out.println("no hay mas perlas azules");
+            pa = true;
+        }
         if (MAX_BLUE == contadorBlue && MAX_WHT == contadorWht) {
             System.out.println("Ya no hay mas perlas");
-            new Throwable(new NoMaterialsLeft("Ya no hay mas perlas"));
-            c = true;
-        } else {
-            if (color == 1) {
-                contadorBlue++;
-            } else {
-                contadorWht++;
-            }
+            this.c = true;
+            throw new NoMaterialsLeft("Ya no hay mas perlas");
+
         }
 
 
     }
 
-public boolean getFinish(){
+    public boolean getFinish() {
         return this.c;
-}
+    }
+
+    public boolean getFinishPerlasAzules() {
+        return this.pa;
+    }
 }
