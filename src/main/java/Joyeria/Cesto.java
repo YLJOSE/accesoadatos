@@ -1,27 +1,38 @@
 package Joyeria;
 
 public class Cesto {
-    private int bluePerlas;
-    private int whitePerlas;
+    private final int MAX_BLUE = 10;
+    private final int MAX_WHT = 10;
+    private int contadorBlue = 0;
+    private int contadorWht = 0;
+private boolean c = false;
+    public Cesto() {
 
-    public Cesto(int bluePerlas, int whitePerlas) {
-        this.bluePerlas = bluePerlas;
-        this.whitePerlas = whitePerlas;
     }
 
-    public synchronized Perla cogerPerla(int color) throws NoMaterialsLeft {
-        if (color == 1 && bluePerlas > 0) {
-            bluePerlas--;
-            return new Perla("Azul");
-        } else if (color == 2 && whitePerlas > 0) {
-            whitePerlas--;
-            return new Perla("Blanca");
-        } else {
-            throw new NoMaterialsLeft("Se acabaron las perlas de color " + (color == 1 ? "Azul" : "Blanca"));
+    public void cogerPerla(int color) {
+        if (MAX_BLUE == contadorBlue) {
+            System.out.println("no hay mas perlas azules");
         }
+        if (MAX_WHT == contadorWht) {
+            System.out.println("no hay mas perlas blancas");
+        }
+        if (MAX_BLUE == contadorBlue && MAX_WHT == contadorWht) {
+            System.out.println("Ya no hay mas perlas");
+            new Throwable(new NoMaterialsLeft("Ya no hay mas perlas"));
+            c = true;
+        } else {
+            if (color == 1) {
+                contadorBlue++;
+            } else {
+                contadorWht++;
+            }
+        }
+
+
     }
 
-    public boolean isMaterialsLeft() {
-        return bluePerlas > 0 || whitePerlas > 0;
-    }
+public boolean getFinish(){
+        return this.c;
+}
 }

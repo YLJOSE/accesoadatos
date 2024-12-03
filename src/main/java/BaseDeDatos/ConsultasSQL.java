@@ -1,6 +1,6 @@
 package BaseDeDatos;
 
-import com.mysql.cj.jdbc.ConnectionImpl;
+//import com.mysql.cj.jdbc.ConnectionImpl;
 
 import java.sql.*;
 
