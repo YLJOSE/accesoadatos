@@ -25,7 +25,7 @@ public class Collar {
 
     }
 
-    public boolean terminoCollar() {
+    public boolean isCompleted() {
         return this.collarFinish;
     }
 

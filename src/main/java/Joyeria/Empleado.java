@@ -1,17 +1,17 @@
 package Joyeria;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Empleado extends Thread {
     ArrayList<Collar> collaresAzules = new ArrayList<Collar>();
     ArrayList<Collar> collaresBlancos = new ArrayList<Collar>();
-    ArrayList<Collar> collaresMixtos = new ArrayList<Collar>();
-    private Cesto cesto;
+    private  ArrayList<Collar> collaresMixtos = new ArrayList<Collar>();
+    static private Cesto cesto = null; // Es compartido por todos los objetos de la clase
     private Collar collar = new Collar();
 
     public Empleado(Cesto cesto) {
-        this.cesto = cesto;
+        if (this.cesto == null)
+            this.cesto = cesto;
     }
 
     @Override
@@ -26,10 +26,11 @@ public class Empleado extends Thread {
                 }
                 System.out.println(num);
 
-                cesto.cogerPerla(num);
-                collar.insertarPerla(num);
-                if (collar.terminoCollar()) {
-                    collaresMixtos.add(collar);
+                // EL ACCESO A UN RECURSO COMPARTIDO REQUIERE DEL USO DE UNA SECCIÓN CRÍTICA
+                this.cesto.cogerPerla(num);
+                this.collar.insertarPerla(num);
+                if (collar.isCompleted()) {
+                    this.collaresMixtos.add(collar);
                     try {
                         Thread.sleep(5000);
                         this.collar = new Collar();
@@ -38,11 +39,15 @@ public class Empleado extends Thread {
                     }
                 }
                 System.out.println(Thread.currentThread().getName() + ": " + this.cesto.getContadorBlue() + " " + this.cesto.getContadorWht());
-            } catch (NoMaterialsLeft e) {
-                throw new RuntimeException(e);
+            } catch (NoMaterialsLeft ex) {
+                System.out.println("NO HAY MÁS PERLAS. FIN!!!");
+                System.out.println("Soy.. " + this.getName().toString() + " y hice " + collaresMixtos.size() + " collar");
+                System.exit(0);
             }
-        } while (!this.cesto.getFinish());
+        } while (!this.cesto.isEmpty());
 
-        System.out.println("Soy.. " + this.getName().toString() + " y hice " + collaresMixtos.size());
+
     }
 }
+
+

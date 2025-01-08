@@ -1,8 +1,8 @@
 package Joyeria;
 
 public class Cesto {
-    private final int MAX_BLUE = 10;
-    private final int MAX_WHT = 10;
+    private final int MAX_BLUE = 20;
+    private final int MAX_WHT = 20;
     private int contadorBlue = 0;
     private int contadorWht = 0;
     private boolean c = false;
@@ -20,7 +20,7 @@ public class Cesto {
 
     }
 
-    public void cogerPerla(int color) throws NoMaterialsLeft {
+    public synchronized void cogerPerla(int color) throws NoMaterialsLeft {
 
         if (color == 1) {
             contadorBlue++;
@@ -29,9 +29,8 @@ public class Cesto {
         }
 
         if (MAX_BLUE == contadorBlue && MAX_WHT == contadorWht) {
-            System.out.println("Ya no hay mas perlas");
             this.c = true;
-            throw new NoMaterialsLeft("Ya no hay mas perlas");
+            throw new NoMaterialsLeft("NO HAY MAS PERLAS.... FIN!!");
 
         }
 
@@ -45,7 +44,7 @@ public class Cesto {
 
     }
 
-    public boolean getFinish() {
+    public boolean isEmpty() {
         return this.c;
     }
 
