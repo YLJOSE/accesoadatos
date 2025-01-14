@@ -2,7 +2,7 @@ package Joyeria;
 
 public class Cesto {
     private final int MAX_BLUE = 20;
-    private final int MAX_WHT = 20;
+    private final int MAX_WHT = 21;
     private int contadorBlue = 0;
     private int contadorWht = 0;
     private boolean c = false;

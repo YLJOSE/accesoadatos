@@ -1,8 +1,6 @@
 package Calculadora.App;
 
-import Calculadora.Interfaz.MenuUsuario;
-
-import static Calculadora.Input.Inputdatos.app;
+import static Calculadora.Input.InputDatos.app;
 
 public class Main {
     public static void main(String[] args) {

@@ -6,28 +6,42 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static Calculadora.Interfaz.Presentacion.presentacion;
+import static Calculadora.Operando.Logica.subirNumero;
 
-public class Inputdatos {
+public class InputDatos {
+    static Scanner sc = new Scanner(System.in);
 
     public static void usuario() {
         int option = 0;
-        Scanner sc = new Scanner(System.in);
+
         MenuUsuario menu = new MenuUsuario();
 
         presentacion();
         try {
             option = sc.nextInt();
+
         } catch (InputMismatchException e) {
             System.err.println("Error! Por favor ingresa un número!!");
+
+        }
+        if (option > 2) {
             usuario();
+        } else {
+            menu.menu(option);
         }
 
-        sc.close();
-        menu.menu(option);
     }
 
     public static void app() {
         usuario();
+    }
+
+    public static void updateNum() {
+        double numero = 0;
+        System.out.println("Ingresa el número a subir:");
+        numero = sc.nextDouble();
+        subirNumero(numero);
+
     }
 
 

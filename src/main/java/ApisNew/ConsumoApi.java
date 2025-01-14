@@ -9,9 +9,9 @@ public class ConsumoApi {
     public static void main(String[] args) {
         // solicitar una peticion
 
-        // https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m
+        // https://www.el-tiempo.net/api/json/v2/home
         try {
-            URL url = new URL("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m");
+            URL url = new URL("https://www.el-tiempo.net/api/json/v2/home");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();

@@ -1,53 +1,38 @@
 package hilos;
 
-import java.util.Random;
+public class Jugador extends Thread{
+    String name ;
 
-public class Jugador extends Thread {
-
-    ayuda ping;
-    ayuda pong;
-
-    public Jugador(ayuda uno, ayuda dos) {
-        this.ping = uno;
-        this.pong = dos;
+    Jugador(String name){
+        this.name = name;
     }
 
     @Override
     public void run() {
 
         this.jugar();
+
     }
 
-    public void jugar() {
-        while (true) {
-            System.out.println(ping.getSName());
-            try {
-
-                Random rnd = new Random();
-                int a;
-
-                do {
-                    a = rnd.nextInt();
-                } while (a < 1000);
-                sleep(a);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println(pong.getSName());
-        }
+    public synchronized void jugar(){
+        System.out.println(this.name);
 
     }
 }
 
-class ayuda extends Thread {
-    String name;
-
-    public ayuda(String name) {
-        this.name = name;
-    }
+ class ayuda{
+     public static void main(String[] args) {
+         Jugador d = new Jugador("Ping");
+         Jugador f = new Jugador("Pong");
 
 
-    public String getSName() {
-        return name;
-    }
+
+
+
+         while(true){
+             d.run();
+             f.run();
+
+         }
+     }
 }

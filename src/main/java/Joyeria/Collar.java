@@ -21,8 +21,6 @@ public class Collar {
                 o.add(new Perla("white"));
             }
         }
-
-
     }
 
     public boolean isCompleted() {

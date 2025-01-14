@@ -1,6 +1,9 @@
 package Calculadora.Interfaz;
 
-import java.util.InputMismatchException;
+
+import Calculadora.Operando.Logica;
+
+import static Calculadora.Input.InputDatos.updateNum;
 
 public class MenuUsuario {
     public void menu(int option) {
@@ -10,13 +13,16 @@ public class MenuUsuario {
                 System.out.println("Gracias por usar la app!!!!");
                 break;
             case 1:
-                System.out.println("dfdfd");
+                Logica.operando();
                 // realizar operaciones
                 break;
             case 2:
+                updateNum();
                 // subir un número
-                System.out.println("new opearation");
                 break;
+            default:
+
+
         }
 
 
