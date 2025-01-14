@@ -1,0 +1,8 @@
+Create database if not exists GestionOperaciones;
+use GestionOperaciones;
+
+Create table memoria(
+id int auto_increment primary key,
+numero double,
+fechaOperacion varchar(25)
+);
