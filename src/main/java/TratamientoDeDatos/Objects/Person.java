@@ -15,6 +15,22 @@ public class Person {
         this.age = age;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", Person.class.getSimpleName() + "[", "]")
