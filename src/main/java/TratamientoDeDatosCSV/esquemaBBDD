@@ -1,0 +1,11 @@
+Create database if not exists Administracion;
+use Administracion;
+Create table memoria(
+id int primary key,
+nombre varchar(15),
+apellido varchar(25),
+edad int
+);
+select * from memoria;
+
+insert into memoria values();
