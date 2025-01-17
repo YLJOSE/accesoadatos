@@ -1,8 +1,7 @@
-package TratamientoDeDatos.BBDDManager;
+package TratamientoDeDatosJSON.BBDDManager;
 
-import Calculadora.credenciales.readProperties;
-import TratamientoDeDatos.Interfaces.Write;
-import TratamientoDeDatos.Objects.Person;
+import TratamientoDeDatosJSON.Interfaces.Write;
+import TratamientoDeDatosJSON.Objects.Person;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

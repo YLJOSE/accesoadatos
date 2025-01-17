@@ -1,4 +1,4 @@
-package TratamientoDeDatos.Interfaces;
+package TratamientoDeDatosCSV.Interfaces;
 
 public interface Write {
     void write();

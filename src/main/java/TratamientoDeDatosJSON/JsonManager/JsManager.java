@@ -1,7 +1,7 @@
-package TratamientoDeDatos.JsonManager;
+package TratamientoDeDatosJSON.JsonManager;
 
-import TratamientoDeDatos.Interfaces.Read;
-import TratamientoDeDatos.Objects.Person;
+import TratamientoDeDatosJSON.Interfaces.Read;
+import TratamientoDeDatosJSON.Objects.Person;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

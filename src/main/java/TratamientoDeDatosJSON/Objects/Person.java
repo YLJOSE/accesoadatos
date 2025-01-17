@@ -1,4 +1,4 @@
-package TratamientoDeDatos.Objects;
+package TratamientoDeDatosJSON.Objects;
 
 import java.util.StringJoiner;
 

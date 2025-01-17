@@ -1,6 +1,6 @@
-package TratamientoDeDatos.PropsManager;
+package TratamientoDeDatosJSON.PropsManager;
 
-import TratamientoDeDatos.Interfaces.Read;
+import TratamientoDeDatosJSON.Interfaces.Read;
 
 import java.io.File;
 import java.io.FileInputStream;

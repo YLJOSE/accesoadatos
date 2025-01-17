@@ -1,10 +1,10 @@
-package TratamientoDeDatos.Main;
+package TratamientoDeDatosJSON.Main;
 
-import TratamientoDeDatos.BBDDManager.BDManager;
-import TratamientoDeDatos.Interfaces.Read;
-import TratamientoDeDatos.Interfaces.Write;
-import TratamientoDeDatos.JsonManager.JsManager;
-import TratamientoDeDatos.PropsManager.PropsManagerC;
+import TratamientoDeDatosJSON.BBDDManager.BDManager;
+import TratamientoDeDatosJSON.Interfaces.Read;
+import TratamientoDeDatosJSON.Interfaces.Write;
+import TratamientoDeDatosJSON.JsonManager.JsManager;
+import TratamientoDeDatosJSON.PropsManager.PropsManagerC;
 
 import java.util.List;
 

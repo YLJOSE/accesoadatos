@@ -1,4 +1,4 @@
-package TratamientoDeDatos.Interfaces;
+package TratamientoDeDatosJSON.Interfaces;
 
 import java.util.List;
 
