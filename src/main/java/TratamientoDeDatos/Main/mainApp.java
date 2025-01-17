@@ -14,7 +14,8 @@ public class mainApp {
         Read props = new PropsManagerC();
         List<String> listP = props.readProps();
         JsManager jsManager = new JsManager(listP.get(3));
-      //  Write bbddManager = new BDManager(listP, jsManager.get());
+        Write bbddManager = new BDManager(listP, jsManager.get());
+        bbddManager.write();
         listP.clear();
 
     }

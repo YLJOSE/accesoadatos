@@ -31,10 +31,20 @@ public class BDManager implements Write {
 
     @Override
     public void write() {
-        try (PreparedStatement ps = connection.prepareStatement("")) {
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        String update = "insert into memoria values(?,?,?,?);";
+        for (int i = 0; i < objects.size(); i++) {
+
+            try (PreparedStatement ps = connection.prepareStatement(update)) {
+                ps.setInt(1, objects.get(i).getId());
+                ps.setString(2, objects.get(i).getName());
+                ps.setString(3, objects.get(i).getLastName());
+                ps.setString(4, objects.get(i).getAge());
+                ps.executeUpdate();
+                System.out.println("Subida de datos a la BBDD correctamente!!");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
         }
     }
 }

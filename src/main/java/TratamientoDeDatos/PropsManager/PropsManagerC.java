@@ -24,7 +24,7 @@ public class PropsManagerC implements Read {
         Properties properties = new Properties();
 
         try {
-            properties.load(new FileInputStream(new File("C:\\Users\\juanc\\IdeaProjects\\accesoadatos\\datos\\configuracion.properties")));
+            properties.load(new FileInputStream(new File("C:\\Users\\ALUMNO CCC - TARDE\\IdeaProjects\\accesoadatos\\datos\\configuracion.properties")));
             credenciales.add(properties.getProperty("user"));
             credenciales.add(properties.getProperty("password"));
             credenciales.add(properties.getProperty("Url"));
