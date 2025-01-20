@@ -13,7 +13,7 @@ public class PropertiesManager implements Read {
     protected List<String> props = new ArrayList<>();
 
     @Override
-    public void read() {
+    public List<String> read() {
         Properties properties = new Properties();
 
         try {
@@ -22,14 +22,12 @@ public class PropertiesManager implements Read {
             props.add(properties.getProperty("password"));
             props.add(properties.getProperty("Url"));
             props.add(properties.getProperty("pathFile"));
+            return props;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
     }
 
-    public List<String> getProps() {
-        return props;
-    }
 }
 

@@ -1,5 +1,7 @@
 package TratamientoDeDatosCSV.Interfaces;
 
+import java.util.List;
+
 public interface Read {
-    void read();
+    List<String> read();
 }
