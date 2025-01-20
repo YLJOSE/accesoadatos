@@ -29,5 +29,10 @@ public class PropertiesManager implements Read {
 
     }
 
+    @Override
+    public List<Object> readObjects() {
+        return List.of();
+    }
+
 }
 

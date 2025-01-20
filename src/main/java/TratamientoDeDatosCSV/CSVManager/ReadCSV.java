@@ -18,6 +18,12 @@ public class ReadCSV implements Read {
 
     @Override
     public List<String> read() {
+       return List.of();
+    }
+
+    @Override
+    public List<Object> readObjects() {
+
         String lineRead;
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
@@ -33,7 +39,7 @@ public class ReadCSV implements Read {
 
             }
 
-            bufferedReader.close();
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
