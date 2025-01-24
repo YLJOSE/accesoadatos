@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "nombre": "Carlos Alberto",
+    "apellidos": "Perez Ruiz",
+    "asignaturas": [
+      {
+        "nombre": "Arte",
+        "nota": 5.5
+      },
+      {
+        "nombre": "Fisica",
+        "nota": 6.5
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Pedro Alberto",
+    "apellidos": "Ruiz Ruiz",
+    "asignaturas": [
+      {
+        "nombre": "Sistemas",
+        "nota": 7.5
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Luis",
+    "apellidos": "Perez Perez",
+    "asignaturas": [
+      {
+        "nombre": "Quimica",
+        "nota": 9.5
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Angel",
+    "apellidos": "Gaviria de sousa",
+    "asignaturas": [
+      {
+        "nombre": "Fisica",
+        "nota": 6.3
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Francisco",
+    "apellidos": "Perez Gaules",
+    "asignaturas": [
+      {
+        "nombre": "Marcas",
+        "nota": 6.9
+      }
+    ]
+  }
+]
