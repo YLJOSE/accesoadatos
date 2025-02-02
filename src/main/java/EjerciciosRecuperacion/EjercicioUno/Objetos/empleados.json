@@ -1,0 +1,82 @@
+{
+  "subordinados": [
+    {
+      "nombre": "Juan",
+      "apellidos": "Pérez",
+      "edad": 30,
+      "fechaIngreso": "2015-06-01",
+      "salario": "35000"
+    },
+    {
+      "nombre": "Ana",
+      "apellidos": "García",
+      "edad": 28,
+      "fechaIngreso": "2017-03-15",
+      "salario": "32000"
+    },
+    {
+      "nombre": "Carlos",
+      "apellidos": "Martín",
+      "edad": 35,
+      "fechaIngreso": "2010-02-20",
+      "salario": "40000"
+    },
+    {
+      "nombre": "Laura",
+      "apellidos": "Rodríguez",
+      "edad": 40,
+      "fechaIngreso": "2012-11-10",
+      "salario": "45000"
+    },
+    {
+      "nombre": "Pedro",
+      "apellidos": "Sánchez",
+      "edad": 33,
+      "fechaIngreso": "2018-08-25",
+      "salario": "38000"
+    }
+  ],
+  "mandosIntermedios": [
+    {
+      "nombre": "Eva",
+      "apellidos": "López",
+      "edad": 38,
+      "fechaIngreso": "2014-05-20",
+      "salario": "50000",
+      "comision": "1500"
+    },
+    {
+      "nombre": "Luis",
+      "apellidos": "González",
+      "edad": 42,
+      "fechaIngreso": "2011-07-10",
+      "salario": "55000",
+      "comision": "2000"
+    },
+    {
+      "nombre": "Sofia",
+      "apellidos": "Fernández",
+      "edad": 36,
+      "fechaIngreso": "2013-12-01",
+      "salario": "48000",
+      "comision": "1200"
+    },
+    {
+      "nombre": "David",
+      "apellidos": "Torres",
+      "edad": 45,
+      "fechaIngreso": "2010-04-05",
+      "salario": "60000",
+      "comision": "2500"
+    },
+    {
+      "nombre": "Marta",
+      "apellidos": "Pérez",
+      "edad": 34,
+      "fechaIngreso": "2016-01-18",
+      "salario": "47000",
+      "comision": "1000"
+    }
+  ]
+}
+
