@@ -3,7 +3,6 @@ package gestionDeJugadores.FileManagment;
 import gestionDeJugadores.DTO.Player;
 
 import java.io.*;
-import java.util.Arrays;
 
 
 public class FileManager {
@@ -26,7 +25,7 @@ public class FileManager {
 
             lineRead = bufferedReader.readLine();
             while (lineRead != null) {
-                String text = "";
+
                 String[] camposD = null;
                 camposD = lineRead.split(";");
 
