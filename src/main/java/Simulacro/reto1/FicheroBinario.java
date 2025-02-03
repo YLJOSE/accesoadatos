@@ -16,6 +16,7 @@ public class FicheroBinario {
             }
         }
 
+
     }
 
     private static void read() {

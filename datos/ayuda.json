@@ -1,32 +1,32 @@
 [
   {
     "id": "1",
-    "name": "richardo",
-    "lastName": "Nashe",
-    "age": "23"
+    "nombre": "richardo",
+    "apellidos": "Nashe",
+    "edad": "23"
   },
   {
     "id": "2",
-    "name": "Carlos",
-    "lastName": "Sainz",
-    "age": "30"
+    "nombre": "Carlos",
+    "apellidos": "Sainz",
+    "edad": "30"
   },
   {
     "id": "3",
-    "name": "Lando",
-    "lastName": "Norris",
-    "age": "24"
+    "nombre": "Lando",
+    "apellidos": "Norris",
+    "edad": "24"
   },
   {
     "id": "4",
-    "name": "Max",
-    "lastName": "Versttapen",
-    "age": "28"
+    "nombre": "Max",
+    "apellidos": "Versttapen",
+    "edad": "28"
   },
   {
     "id": "5",
-    "name": "Lewis",
-    "lastName": "Hamilton",
-    "age": "30"
+    "nombre": "Lewis",
+    "apellidos": "Hamilton",
+    "edad": "30"
   }
 ]
