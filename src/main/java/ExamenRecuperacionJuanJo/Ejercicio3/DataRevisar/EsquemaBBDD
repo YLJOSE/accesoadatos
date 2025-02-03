@@ -1,0 +1,25 @@
+Create database if not exists empresa;
+use empresa;
+
+create table subOrdinados(
+id int auto_increment primary key,
+nombre varchar(20),
+apellidos varchar(20),
+edad int,
+fechaINgresoEmpresa varchar(25),
+salarioBrutoAnual varchar(25)
+);
+create table mandoIntermedio(
+id int auto_increment primary key,
+nombre varchar(20),
+apellidos varchar(20),
+edad int,
+fechaINgresoEmpresa varchar(25),
+salarioBrutoAnual varchar(25),
+comision varchar(15)
+);
+select * from  subOrdinados;
+select * from  mandoIntermedio;
+-- sentencias --
+insert into subOrdinados values();
+insert into mandoIntermedio values();

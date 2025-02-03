@@ -1,0 +1,51 @@
+{
+  "subordinados": [
+    {
+      "nombre": "richardo",
+      "apellidos": "Nashe",
+      "edad": "23",
+      "fechaIngresoEmpresa": "17/10/2020",
+      "salarioBrutoAnual": "190000"
+    },
+    {
+      "nombre": "Carlos",
+      "apellidos": "Sainz",
+      "edad": "30",
+      "fechaIngresoEmpresa": "17/10/2020",
+      "salarioBrutoAnual": "190000"
+    },
+    {
+      "nombre": "Lando",
+      "apellidos": "Norris",
+      "edad": "24",
+      "fechaIngresoEmpresa": "17/10/2020",
+      "salarioBrutoAnual": "190000"
+    }
+  ],
+  "mandoIntermedio": [
+    {
+      "nombre": "richardo",
+      "apellidos": "Nashe",
+      "edad": "23",
+      "fechaIngresoEmpresa": "17/10/2020",
+      "salarioBrutoAnual": "190000",
+      "comision": "2525"
+    },
+    {
+      "nombre": "Carlos",
+      "apellidos": "Sainz",
+      "edad": "30",
+      "fechaIngresoEmpresa": "17/10/2020",
+      "salarioBrutoAnual": "190000",
+      "comision": "252525"
+    },
+    {
+      "nombre": "Lando",
+      "apellidos": "Norris",
+      "edad": "24",
+      "fechaIngresoEmpresa": "17/10/2020",
+      "salarioBrutoAnual": "190000",
+      "comision": "2525252"
+    }
+  ]
+}

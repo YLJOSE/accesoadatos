@@ -66,7 +66,7 @@ public class FileManager {
             }
             fW.append("\n");
             fW.close();
-            System.out.println("El jugador se agregó correctamente!!");
+                System.out.println("El jugador se agregó correctamente!!");
         } catch (IOException e) {
             System.out.println("EL jugador no se agregó correctamente!!");
             throw new RuntimeException(e);
