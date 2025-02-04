@@ -40,11 +40,11 @@ public class Persona {
     }
 
     public String toCSV() {
-        return nombre + ";" + apellidos + ";" + edad + ";" + fechaIngresoEmpresa + ";" + salarioBrutoAnual + ";";
+        return nombre + ";" + apellidos + ";" + edad + ";" + fechaIngresoEmpresa + ";" + salarioBrutoAnual + ";\n";
     }
 
     @Override
     public String toString() {
-        return nombre + ";" + apellidos + ";" + edad + ";" + fechaIngresoEmpresa + ";" + salarioBrutoAnual;
+        return nombre + ";" + apellidos + ";" + edad + ";" + fechaIngresoEmpresa + ";" + salarioBrutoAnual + ";\n";
     }
 }

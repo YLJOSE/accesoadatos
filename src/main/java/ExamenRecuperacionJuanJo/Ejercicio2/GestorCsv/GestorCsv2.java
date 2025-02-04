@@ -32,7 +32,7 @@ public class GestorCsv2 implements Escribir {
             FileWriter fileWriter = new FileWriter(fichero, true);
 
             for (Persona p : sub) {
-                fileWriter.write(p.toCSV() + "\n");
+                fileWriter.write(p.toCSV());
 
             }
 
