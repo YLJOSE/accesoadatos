@@ -4,6 +4,7 @@ import ExamenRecuperacionJuanJo.Ejercicio1.OBjetos.Empresa;
 import ExamenRecuperacionJuanJo.Ejercicio1.OBjetos.MandoIntermedio;
 import ExamenRecuperacionJuanJo.Ejercicio1.OBjetos.Persona;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestorCRUD {
@@ -66,5 +67,7 @@ public class GestorCRUD {
         for (MandoIntermedio m : mandos) {
             System.out.println(m);
         }
+
+
     }
 }
