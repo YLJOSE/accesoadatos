@@ -7,11 +7,12 @@ import ExamenRecuperacionJuanJo.Ejercicio2.Interfaces.Escribir;
 
 public class Main {
     public static void main(String[] args) {
-        Leer json = new JsonGestor("C:\\Users\\ALUMNO CCC - TARDE\\IdeaProjects\\accesoadatos\\src\\main\\java\\ExamenRecuperacionJuanJo\\Ejercicio1\\Ficheros\\ayuda.json");
+
+        Leer json = new JsonGestor("fichero.json");
 
 
         Escribir escribirCSV = new GestorCsv2(json.leer());
-
         escribirCSV.escribir();
+
     }
 }

@@ -4,6 +4,7 @@ import ExamenRecuperacionJuanJo.Ejercicio1.OBjetos.Empresa;
 import ExamenRecuperacionJuanJo.Ejercicio1.OBjetos.MandoIntermedio;
 import ExamenRecuperacionJuanJo.Ejercicio1.OBjetos.Persona;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestorCRUD {
@@ -21,6 +22,7 @@ public class GestorCRUD {
     }
 
     public void borrarPersonal(String nombre) {
+        // for (int i = 0; <condicion_de_continuidad>; i++)
         for (Persona p : sub) {
             if (p.getNombre().equalsIgnoreCase(nombre)) {
                 sub.remove(p);
@@ -60,10 +62,12 @@ public class GestorCRUD {
 
     public void listarPersonalCompleta() {
         for (Persona p : sub) {
-            System.out.println(p.toString());
+            System.out.println(p);
         }
         for (MandoIntermedio m : mandos) {
-            System.out.println(m.toString());
+            System.out.println(m);
         }
+
+
     }
 }
