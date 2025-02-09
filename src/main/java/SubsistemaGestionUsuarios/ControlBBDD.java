@@ -163,11 +163,7 @@ public class ControlBBDD {
                 PreparedStatement stmt = connection.prepareStatement(query);
                 stmt.setString(1, user_id);
                 ResultSet rst = stmt.executeQuery();
-                while (rst.next()) {
                     return id = rst.getInt("id");
-                }
-                rst.close();
-                stmt.close();
             }
         } catch (SQLException e) {
             e.getErrorCode();
