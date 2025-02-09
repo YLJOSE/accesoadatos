@@ -1,0 +1,15 @@
+Usa generics (<T>), lo que significa que T es un tipo de dato genérico (puede ser User, Product, etc.).
+Ventajas del uso de Generics (<T>):
+
+Reutilización de Código
+
+Podemos usar la misma interfaz para diferentes tipos de datos sin necesidad de duplicar código.
+
+Si necesitamos cambiar de MongoDB a MySQL, solo debemos hacer una nueva implementación de CrudRepository<T> sin modificar la lógica de negocio.
+Flexibilidad
+
+Podemos trabajar con cualquier entidad (User, Product, Order, etc.), sin necesidad de definir múltiples interfaces.
+Abstracción
+
+La capa de negocio (UserService) no depende de la base de datos específica, solo usa la interfaz CrudRepository<T>.
+
