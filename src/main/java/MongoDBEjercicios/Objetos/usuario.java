@@ -1,4 +1,4 @@
-package MongoDBEjercicios;
+package MongoDBEjercicios.Objetos;
 
 public class usuario {
     private String nombre;

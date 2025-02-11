@@ -1,5 +1,10 @@
 package MongoDBEjercicios;
 
+import MongoDBEjercicios.BBDDManager.mongoDBGestor;
+import MongoDBEjercicios.BDCRUD.CRUDUsuario;
+import MongoDBEjercicios.Interfaces.CRUD;
+import MongoDBEjercicios.Objetos.usuario;
+
 public class prueba {
 
     public static void main(String[] args) {
@@ -7,7 +12,7 @@ public class prueba {
         CRUDUsuario CRUDUsuario = new CRUDUsuario(mongoRepo);
 
         // Insertar un usuario
-        CRUDUsuario.annadirUsuario("Carlos Pérez", "carlos@juju.com");
+        CRUDUsuario.annadirUsuario("Carlos perez", "carlosperez@juju.com");
 
         // Obtener todos los usuarios
        // CRUDUsuario.obtenerTodosLosUsuarios().forEach(usuario ->

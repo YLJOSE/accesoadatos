@@ -1,4 +1,7 @@
-package MongoDBEjercicios;
+package MongoDBEjercicios.BDCRUD;
+
+import MongoDBEjercicios.Interfaces.CRUD;
+import MongoDBEjercicios.Objetos.usuario;
 
 import java.util.List;
 

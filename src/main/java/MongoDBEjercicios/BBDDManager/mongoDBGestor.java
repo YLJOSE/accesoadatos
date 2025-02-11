@@ -1,5 +1,7 @@
-package MongoDBEjercicios;
+package MongoDBEjercicios.BBDDManager;
 
+import MongoDBEjercicios.Interfaces.CRUD;
+import MongoDBEjercicios.Objetos.usuario;
 import com.mongodb.client.*;
 import org.bson.Document;
 import java.util.ArrayList;

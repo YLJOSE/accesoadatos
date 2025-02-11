@@ -2,11 +2,10 @@ package MongoDBEjercicios.Interfaces;
 
 import java.util.List;
 
-public interface CRUD <T>{
-    List<T> leer();
-    void escribir(T generics);
-    void actualizar(String clave, String valor, T generics);
-    void borrar(String clave, String valor);
-    void borrarTodo();
-    void filtrarDatos(String clave, String valor);
+public interface CRUD<T> {
+    void insertarUsuario(T entity);
+    T filtrarPorNombre(String nombre);
+    List<T> obtenerTodosLosDocumentos();
+    void actualizarPorNombre(String nombre, T entity);
+    void eliminarPorNombre(String nombre);
 }
