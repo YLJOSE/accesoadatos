@@ -29,11 +29,12 @@ public class ReadCSV implements Read {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             lineRead = bufferedReader.readLine();
             while (lineRead != null) {
-                String[] lineArray = null;
+                String[] lineArray;
+                ///  para escribir en TSV se cambia la coma y se pone como separador el tabulador
                 lineArray = lineRead.split(";");
                 Coche coche = new Coche(Integer.parseInt(lineArray[0]), lineArray[1], lineArray[2], lineArray[3], lineArray[4]);
                 System.out.println("----------------------------");
-                System.out.println(coche.toString());
+                System.out.println(coche);
                 System.out.println("----------------------------");
                 lineRead = bufferedReader.readLine();
 
