@@ -1,11 +1,13 @@
 package MongoDBEjercicios.Interfaces;
 
+import org.bson.types.ObjectId;
+
 import java.util.List;
 
 public interface CRUD<T> {
     void insertarUsuario(T entity);
-    T filtrarPorNombre(String nombre);
+    T filtrarPorNombre(ObjectId objectId);
     List<T> obtenerTodosLosDocumentos();
-    void actualizarPorNombre(String nombre, T entity);
-    void eliminarPorNombre(String nombre);
+    void actualizarPorNombre(ObjectId objectId, T entity);
+    void eliminarPorNombre(ObjectId objectId);
 }

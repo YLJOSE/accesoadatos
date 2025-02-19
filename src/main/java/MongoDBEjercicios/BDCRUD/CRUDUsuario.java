@@ -2,6 +2,7 @@ package MongoDBEjercicios.BDCRUD;
 
 import MongoDBEjercicios.Interfaces.CRUD;
 import MongoDBEjercicios.Objetos.usuario;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
@@ -17,20 +18,20 @@ public class CRUDUsuario {
         userRepository.insertarUsuario(usuario);
     }
 
-    public usuario obtenerUsuarioPorNombre(String nombre) {
-        return userRepository.filtrarPorNombre(nombre);
+    public usuario obtenerUsuarioPorId(String id) {
+        return userRepository.filtrarPorNombre(new ObjectId(id));
     }
 
     public List<usuario> obtenerTodosLosUsuarios() {
         return userRepository.obtenerTodosLosDocumentos();
     }
 
-    public void actualizarUsuarioPorNombre(String nombre, String name, String email) {
+    public void actualizarUsuarioPorId(String id, String name, String email) {
         usuario usuario = new usuario(name, email);
-        userRepository.actualizarPorNombre(nombre, usuario);
+        userRepository.actualizarPorNombre(new ObjectId(id), usuario);
     }
 
-    public void eliminarUsuarioPorNombre(String nombre) {
-        userRepository.eliminarPorNombre(nombre);
+    public void eliminarUsuarioPorId(String id) {
+        userRepository.eliminarPorNombre(new ObjectId(id));
     }
 }
