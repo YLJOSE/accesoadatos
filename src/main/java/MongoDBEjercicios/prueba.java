@@ -12,7 +12,7 @@ public class prueba {
         CRUDUsuario CRUDUsuario = new CRUDUsuario(mongoRepo);
 
         // Insertar un usuario
-        //CRUDUsuario.annadirUsuario("Cristiiii rodri", "cristirodri@juju.com");
+        CRUDUsuario.annadirUsuario("public static void main", "publicstaticvoidmain@juju.com");
 
         // Obtener todos los usuarios
         // CRUDUsuario.obtenerTodosLosUsuarios().forEach(usuario ->
@@ -21,9 +21,8 @@ public class prueba {
         //CRUDUsuario.obtenerUsuarioPorId("67b6077c8bf9ae57d16a9117");
         // Actualizar un usuario
         //CRUDUsuario.actualizarUsuarioPorId("67b6077c8bf9ae57d16a9117", "Luis Navarro", "luis@jujuj.com");
-
-        // Eliminar un usuario
-        CRUDUsuario.eliminarUsuarioPorId("67b6077c8bf9ae57d16a9117");
+        // Eliminar un usuario por id que es un objectid de la libreria "BSON"
+        // CRUDUsuario.eliminarUsuarioPorId("67b6077c8bf9ae57d16a9117");
     }
 }
 
