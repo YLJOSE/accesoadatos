@@ -1,0 +1,68 @@
+
+    public String toHTML() {
+
+        int addAge = 0;
+        float averageAge = 0.0f;
+        double addSalary = 0;
+
+        String htmlHeader = """
+                        <!doctype html>
+                        <html>
+                            <head>
+                            </head>
+                            <body>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre y apellidos</th>
+                                            <th>Edad</th>
+                                            <th>Fecha de ingreso en la empresa</th>
+                                            <th>Salario bruto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                """;
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(htmlHeader);
+
+        for (Subordinado subordinado : subordinados) {
+            sb.append("<tr>");
+
+            sb.append("<td>");
+            sb.append(subordinado.getFullName());
+            sb.append("</td>");
+
+            sb.append("<td>");
+            sb.append(subordinado.getEdad());
+            sb.append("</td>");
+
+            sb.append("<td>");
+            sb.append(subordinado.getEnrollDate());
+            sb.append("</td>");
+
+            sb.append("<td>");
+            sb.append(subordinado.getSalary());
+            sb.append("</td>");
+
+            sb.append("</tr>");
+
+            addAge += subordinado.getEdad();
+            addSalary += subordinado.getSalary();
+        }
+
+        // Fila de estadisticas
+        averageAge = (float) addAge / subordinados.size();
+        sb.append("<tr>");
+        sb.append("<td>Estadísticas</td>");
+        sb.append("<td colspan='2'>" + averageAge + "</td>");
+        sb.append("<td>" +  addSalary + "</td>");
+        sb.append("</tr>");
+
+        sb.append("</tbody>");
+        sb.append("</table>");
+        sb.append("</body>");
+        sb.append("</html>");
+
+        return sb.toString();
+    }
