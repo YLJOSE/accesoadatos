@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface CRUD<T> {
     void insertarUsuario(T entity);
-    T filtrarPorNombre(ObjectId objectId);
+    T filtrarPorId(ObjectId objectId);
     List<T> obtenerTodosLosDocumentos();
-    void actualizarPorNombre(ObjectId objectId, T entity);
-    void eliminarPorNombre(ObjectId objectId);
+    void actualizarPorId(ObjectId objectId, T entity);
+    void eliminarPorId(ObjectId objectId);
 }

@@ -19,7 +19,7 @@ public class CRUDUsuario {
     }
 
     public usuario obtenerUsuarioPorId(String id) {
-        return userRepository.filtrarPorNombre(new ObjectId(id));
+        return userRepository.filtrarPorId(new ObjectId(id));
     }
 
     public List<usuario> obtenerTodosLosUsuarios() {
@@ -28,10 +28,10 @@ public class CRUDUsuario {
 
     public void actualizarUsuarioPorId(String id, String name, String email) {
         usuario usuario = new usuario(name, email);
-        userRepository.actualizarPorNombre(new ObjectId(id), usuario);
+        userRepository.actualizarPorId(new ObjectId(id), usuario);
     }
 
     public void eliminarUsuarioPorId(String id) {
-        userRepository.eliminarPorNombre(new ObjectId(id));
+        userRepository.eliminarPorId(new ObjectId(id));
     }
 }

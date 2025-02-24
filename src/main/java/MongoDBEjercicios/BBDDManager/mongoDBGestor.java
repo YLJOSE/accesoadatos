@@ -29,7 +29,7 @@ public class mongoDBGestor implements CRUD<usuario> {
     }
 
     @Override
-    public usuario filtrarPorNombre(ObjectId objectId) { //String nombre
+    public usuario filtrarPorId(ObjectId objectId) { //String nombre
         Document doc = mongoColeccion.find(new Document("_id", objectId)).first();
         if (doc != null) {
             usuario usuario = new usuario(doc.getString("name"), doc.getString("email"));
@@ -50,14 +50,14 @@ public class mongoDBGestor implements CRUD<usuario> {
     }
 
     @Override
-    public void actualizarPorNombre(ObjectId objectId, usuario usuario) {  //String nombre
+    public void actualizarPorId(ObjectId objectId, usuario usuario) {  //String nombre
         Document filter = new Document("_id", objectId);
         Document update = new Document("$set", new Document("name", usuario.getNombre()).append("email", usuario.getEmail()));
         mongoColeccion.updateOne(filter, update);
     }
 
     @Override
-    public void eliminarPorNombre(ObjectId objectId) { //String nombre
+    public void eliminarPorId(ObjectId objectId) { //String nombre
         mongoColeccion.deleteOne(new Document("_id", objectId));
     }
 }
